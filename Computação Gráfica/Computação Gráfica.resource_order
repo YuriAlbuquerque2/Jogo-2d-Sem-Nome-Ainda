@@ -20,6 +20,8 @@
     {"name":"Player","order":2,"path":"folders/Sprites/Player.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"spr_terra","order":5,"path":"sprites/spr_terra/spr_terra.yy",},
+    {"name":"obj_terra","order":2,"path":"objects/obj_terra/obj_terra.yy",},
     {"name":"spr_chao","order":1,"path":"sprites/spr_chao/spr_chao.yy",},
     {"name":"obj_chao","order":1,"path":"objects/obj_chao/obj_chao.yy",},
   ],
