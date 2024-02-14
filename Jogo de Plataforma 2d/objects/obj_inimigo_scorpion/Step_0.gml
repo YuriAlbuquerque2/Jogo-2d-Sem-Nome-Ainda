@@ -1,6 +1,21 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 
+if (morto) {
+	sprite_index = spr_inimigo_scorpion_morto;
+	
+	//sumindo após a morte
+	if (image_speed <= 0) {
+		image_alpha -= 0.01;
+	}
+	//quando sumir totalmente, não existe mais inimigo
+	if (image_alpha <= 0) {
+		instance_destroy();
+	}
+	
+	exit;
+}
+
 //checando se tá no chão
 var _chao = place_meeting(x, y + 1, obj_chao);
 
@@ -24,7 +39,7 @@ if (_chao) {
 
 	
 	//Controlando a animação
-	if (velh != 0) {
+	if (velh != 0 && dano == false) {
 		sprite_index = spr_inimigo_scorpion_walk;
 		image_xscale = sign(velh);
 	}
@@ -52,6 +67,12 @@ else {
 	if (velh != 0) {
 		image_xscale = sign(velh);
 	}
+}
+
+//checando se tá tomando dano
+if (dano && morto == false) {
+	sprite_index = spr_inimigo_scorpion_dano;
+	velh = 0;
 }
 
 

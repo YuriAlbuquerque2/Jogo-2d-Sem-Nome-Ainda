@@ -44,8 +44,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "Inimigos",
-    "path": "folders/Sprites/Inimigos.yy",
+    "name": "Escorpião",
+    "path": "folders/Sprites/Inimigos/Escorpião.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
