@@ -35,8 +35,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_inimigo_scorpion_idle",
-    "path": "sprites/spr_inimigo_scorpion_idle/spr_inimigo_scorpion_idle.yy",
+    "name": "spr_buraco_reinicia",
+    "path": "sprites/spr_buraco_reinicia/spr_buraco_reinicia.yy",
   },
   "spriteMaskId": {
     "name": "spr_inimigo_scorpion_idle",

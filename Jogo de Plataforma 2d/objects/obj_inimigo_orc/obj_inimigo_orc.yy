@@ -35,8 +35,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_inimigo_orc_idle",
-    "path": "sprites/spr_inimigo_orc_idle/spr_inimigo_orc_idle.yy",
+    "name": "spr_orc",
+    "path": "sprites/spr_orc/spr_orc.yy",
   },
   "spriteMaskId": {
     "name": "spr_inimigo_orc_idle",

@@ -1,10 +1,8 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_knight_decorativo",
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,},
-  ],
+  "name": "obj_inimigo_novo",
+  "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
@@ -28,8 +26,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_decorativo",
-    "path": "sprites/spr_decorativo/spr_decorativo.yy",
+    "name": "spr_inimigo_novo",
+    "path": "sprites/spr_inimigo_novo/spr_inimigo_novo.yy",
   },
   "spriteMaskId": null,
   "visible": true,
