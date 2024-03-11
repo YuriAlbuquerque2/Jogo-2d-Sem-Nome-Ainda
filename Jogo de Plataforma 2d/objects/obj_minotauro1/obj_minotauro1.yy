@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_inimigo_novo",
+  "name": "obj_minotauro1",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
@@ -26,13 +26,11 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"pode_cair","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"True","varType":3,},
-  ],
+  "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_inimigo_novo",
-    "path": "sprites/spr_inimigo_novo/spr_inimigo_novo.yy",
+    "name": "spr_minotauro1",
+    "path": "sprites/spr_minotauro1/spr_minotauro1.yy",
   },
   "spriteMaskId": null,
   "visible": true,
