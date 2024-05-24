@@ -16,5 +16,6 @@ ataque = 1;
 xscale = 1;
 
 mostra_estado = false;
+img_spd = 45;
 
 estado = "parado";

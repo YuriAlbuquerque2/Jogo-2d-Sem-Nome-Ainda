@@ -17,6 +17,8 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Misc","order":3,"path":"folders/Sprites/Misc.yy",},
     {"name":"Player","order":1,"path":"folders/Sprites/Player.yy",},
+    {"name":"Ar","order":3,"path":"folders/Sprites/Player/Ar.yy",},
+    {"name":"Ataque","order":4,"path":"folders/Sprites/Player/Ataque.yy",},
     {"name":"Movendo","order":2,"path":"folders/Sprites/Player/Movendo.yy",},
     {"name":"Parado","order":1,"path":"folders/Sprites/Player/Parado.yy",},
   ],
@@ -24,5 +26,6 @@
     {"name":"obj_block","order":2,"path":"objects/obj_block/obj_block.yy",},
     {"name":"obj_entidade","order":1,"path":"objects/obj_entidade/obj_entidade.yy",},
     {"name":"spr_player_base","order":4,"path":"sprites/spr_player_base/spr_player_base.yy",},
+    {"name":"spr_player_fall","order":1,"path":"sprites/spr_player_fall/spr_player_fall.yy",},
   ],
 }

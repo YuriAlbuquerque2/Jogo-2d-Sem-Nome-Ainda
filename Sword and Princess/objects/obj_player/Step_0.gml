@@ -8,6 +8,7 @@ var _chao = place_meeting(x, y + 1, obj_block);
 _right = keyboard_check(ord("D"));
 _left = keyboard_check(ord("A"));
 _jump = keyboard_check_pressed(ord("K"));
+_attack = keyboard_check_pressed(ord("J"));
 
 //Código de movimentação
 velh = (_right - _left) * max_velh;
@@ -16,11 +17,6 @@ velh = (_right - _left) * max_velh;
 if (!_chao) {
 	if (velv < max_velv * 2) { //Limitando velocidade de queda
 	velv += GRAVIDADE * massa;
-	}
-}
-else { //Pulando se eu estou no chão
-		if (_jump) {
-			velv = -max_velv;		
 	}
 }
 
@@ -35,6 +31,16 @@ switch (estado) {
 		//Movendo
 		if (_right || _left) {
 			estado = "movendo";	
+		}
+		else if (_jump || velv != 0) {
+			estado = "pulando";
+			image_index = 0;
+			velv = (-max_velv * _jump);
+		}
+		else if (_attack) {
+			estado = "ataque";
+			velh = 0;
+			image_index = 0;
 		}
 		
 		break;
@@ -51,7 +57,51 @@ switch (estado) {
 			estado = "parado";
 			velh = 0;
 		}
+		else if (_jump) {
+			estado = "pulando";
+			image_index = 0;
+			velv = -max_velv;
+		}
+		else if (_attack) {
+			estado = "ataque";
+			velh = 0;
+			image_index = 0;
+		}
 		
 		break;
+	}
+	
+	case "pulando":
+	{
+		//Estou caindo
+		if (velv > 0) {
+				sprite_index = spr_player_fall;
+		} else { 
+			sprite_index = spr_player_pulo;	
+			//Garantindo que a animação não se repita
+			if (image_index >= image_number-1) {
+					image_index = image_number-1;
+			}
+		}
+		
+		//Condição de troca de estado
+		if (_chao) {
+			estado = "parado";	
+		}
+		
+		break;
+	}
+	
+	case "ataque":
+	{
+		velh = 0;
+		
+		sprite_index = spr_player_ataque1;
+		
+		if (image_index > image_number-1) {
+			estado = "parado";	
+		}
+		
+		break
 	}
 }
