@@ -100,6 +100,7 @@ switch (estado) {
 		
 		if (image_index > image_number-1) {
 			estado = "parado";	
+			velh = 0;
 		}
 		
 		break
