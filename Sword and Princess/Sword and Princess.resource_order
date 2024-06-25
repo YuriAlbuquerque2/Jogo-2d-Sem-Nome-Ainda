@@ -27,7 +27,9 @@
   ],
   "ResourceOrderSettings":[
     {"name":"obj_block","order":2,"path":"objects/obj_block/obj_block.yy",},
+    {"name":"obj_dano","order":4,"path":"objects/obj_dano/obj_dano.yy",},
     {"name":"obj_entidade","order":1,"path":"objects/obj_entidade/obj_entidade.yy",},
+    {"name":"spr_dano","order":6,"path":"sprites/spr_dano/spr_dano.yy",},
     {"name":"spr_inimigo_cobra_dead","order":2,"path":"sprites/spr_inimigo_cobra_dead/spr_inimigo_cobra_dead.yy",},
     {"name":"spr_inimigo_cobra_hit","order":1,"path":"sprites/spr_inimigo_cobra_hit/spr_inimigo_cobra_hit.yy",},
     {"name":"spr_player_base","order":4,"path":"sprites/spr_player_base/spr_player_base.yy",},

@@ -30,7 +30,6 @@ switch (estado) {
 		if (sprite_index != spr_inimigo_cobra_hit) {
 			//Iniciando o que for preciso para este estado
 			image_index = 0;
-			vida_atual--;
 		}
 		sprite_index = spr_inimigo_cobra_hit;
 		

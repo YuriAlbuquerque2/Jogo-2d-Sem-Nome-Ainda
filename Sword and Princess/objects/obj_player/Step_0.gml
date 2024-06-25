@@ -98,9 +98,30 @@ switch (estado) {
 		
 		sprite_index = spr_player_ataque1;
 		
+		//Criando o objeto de dano
+		if (image_index >= 2 && dano == noone && posso) {
+			if (xscale == 1) {
+				dano = instance_create_layer(x + sprite_width/5, y - sprite_height/2, layer, obj_dano);
+				dano.dano = ataque;
+				dano.pai = id;
+				posso = false;
+			}
+			else if (xscale == -1) {
+				dano = instance_create_layer(x + sprite_width/2.5, y - sprite_height/2, layer, obj_dano);
+				dano.dano = ataque;
+				dano.pai = id;	
+				posso = false;
+			}
+		}
+		
 		if (image_index > image_number-1) {
 			estado = "parado";	
 			velh = 0;
+			posso = true;
+			if (dano) {
+				instance_destroy(dano, false);
+				dano = noone;
+			}
 		}
 		
 		break

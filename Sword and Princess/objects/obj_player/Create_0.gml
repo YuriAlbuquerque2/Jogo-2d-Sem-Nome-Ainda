@@ -11,3 +11,7 @@ max_velh = 4;
 max_velv = 6;
 
 mostra_estado = true;
+
+dano = noone;
+ataque = 1;
+posso = true;	
