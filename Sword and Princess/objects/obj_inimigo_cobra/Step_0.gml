@@ -10,6 +10,8 @@ if (!_chao) {
 switch (estado) {
 	case "parado": 
 	{
+		velh = 0;
+		timer_estado++;
 		if (sprite_index != spr_inimigo_cobra_idle) {
 			image_index = 0;	
 		}
@@ -22,6 +24,29 @@ switch (estado) {
 				estado = "hit";	
 			}
 		 }
+		 
+		 //Indo para o estado de patrulha
+		 if (irandom(timer_estado) > 300) {
+			estado = choose("walk", "parado", "walk"); 
+			timer_estado = 0;
+		 }	
+		
+		break;
+	}
+	case "walk":
+	{	
+		timer_estado++;
+		if (sprite_index != spr_inimigo_cobra_walk) {
+			image_index = 0;	
+			velh = choose(1, -1);
+		}
+		sprite_index = spr_inimigo_cobra_walk;
+		
+		//Condição de saída do estado
+		if (irandom(timer_estado) > 300) {
+			estado = choose("parado", "walk", "parado");
+			timer_estado = 0;
+		}
 		
 		break;
 	}
@@ -61,5 +86,10 @@ switch (estado) {
 		}	
 		
 		break;
+	}
+	
+	default: 
+	{
+		estado = "parado";	
 	}
 }

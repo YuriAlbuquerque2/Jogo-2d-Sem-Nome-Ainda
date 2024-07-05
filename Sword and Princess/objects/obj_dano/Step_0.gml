@@ -9,6 +9,7 @@ if (_outro) {
 	if (_outro.id != pai) {
 		if (_outro.vida_atual > 0) {
 			_outro.estado = "hit";
+			_outro.image_index = 0;
 			_outro.vida_atual -= dano;
 			instance_destroy();
 		}
