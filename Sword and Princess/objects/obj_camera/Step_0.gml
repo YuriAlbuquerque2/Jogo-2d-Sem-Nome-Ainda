@@ -6,4 +6,4 @@ if (alvo == noone) exit;
 //Seguindo alvo
 
 x = lerp(x, alvo.x, .1);
-y = lerp(x, alvo.y, .1);
+y = lerp(y, alvo.y, .1);

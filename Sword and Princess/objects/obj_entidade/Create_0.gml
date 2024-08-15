@@ -1,6 +1,8 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 
+delay = 0;
+
 vida_max = 1;
 vida_atual = vida_max;
 

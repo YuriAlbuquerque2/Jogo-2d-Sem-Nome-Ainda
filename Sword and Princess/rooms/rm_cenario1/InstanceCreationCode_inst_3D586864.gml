@@ -1,0 +1,1 @@
+if (id.morto) instance_destroy(id);
