@@ -15,19 +15,23 @@ if (pause_active) {
     draw_rectangle_color(0, 0, _larg, _alt, c_black, c_black, c_black, c_black, 0);
     draw_set_alpha(1);
     draw_set_color(c_gray);
-    draw_rectangle(_box_x, _box_y, _box_x + _box_width, _box_y + _box_height, false);
+    draw_rectangle(_box_x, _box_y, _box_x + _box_width, _box_y + _box_height + 50, false);
 
     draw_set_color(c_white);
     var _espaco_y = 50;
     for (var _i = 0; _i < array_length(pause_options); _i++) {
+        var _texto_opcao = pause_options[_i];
+        if (_i == 2) {
+            _texto_opcao += ": " + (control_type == 0 ? "Moderno" : "Clássico");
+        }
         var _cor = (_i == pause_sel) ? c_yellow : c_white;
-        draw_text_color(_box_x + 20, _box_y + 40 + (_i * _espaco_y), pause_options[_i], _cor, _cor, _cor, _cor, 1);
+        draw_text_color(_box_x + 20, _box_y + 40 + (_i * _espaco_y), _texto_opcao, _cor, _cor, _cor, _cor, 1);
     }
 
     // Se estiver na confirmação de saída
     if (confirm_exit) {
         draw_set_color(c_gray);
-        draw_rectangle(_box_x, _box_y, _box_x + _box_width, _box_y + _box_height, false);
+        draw_rectangle(_box_x, _box_y, _box_x + _box_width, _box_y + _box_height + 50, false);
         draw_set_color(c_white);
         draw_text(_box_x + 20, _box_y + 20, "Deseja realmente sair do jogo?");
 
@@ -52,6 +56,8 @@ if (show_no_save_message && !pause_active) {
     draw_set_font(-1);
     draw_set_color(-1);
 }
+
+
 
 if (room == rm_cutscene) {
 	draw_set_font(fnt_normal)

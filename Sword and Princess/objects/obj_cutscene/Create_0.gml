@@ -20,7 +20,7 @@ cutscene = [
 	[cutscene_wait, 1],
 	[cutscene_change_sprite, obj_troll, spr_boss_taunt],
 	[cutscene_play_sound, snd_boss_taunt, false],
-	[cutscene_wait, 3],
+	[cutscene_wait, 5],
 	[cutscene_destruir_dialogo],
 	[cutscene_change_sprite, obj_troll, spr_boss_idle],
 	[cutscene_wait, 2]

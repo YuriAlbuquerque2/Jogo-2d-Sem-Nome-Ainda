@@ -5,6 +5,7 @@ function scr_funcoes(){
 }
 
 global.dificuldade = 1;
+global.controle = 0;
 
 enum MENU_ACOES {
 	RODA_METODO,
@@ -16,7 +17,8 @@ enum MENUS_LISTA {
 	PRINCIPAL,
 	OPCOES,
 	TELA,
-	DIFICULDADE
+	DIFICULDADE,
+	CONTROLES
 }
 
 //Screenshake
@@ -50,11 +52,12 @@ function valor_ac(_anim, _animar = false, _chan = 0) {
 	return _sel;
 }
 
-function sys_save(_nome_arquivo = "save.ini", _save = 0, _dificuldade = 1, _room_salva = 0, _direcao = 1, _boss_morreu = 0, _dialogo1 = 0, _vida_atual = 10, _posicao_x = 0, _posicao_y = 0, _dash = 0) {
+function sys_save(_nome_arquivo = "save.ini", _save = 0, _dificuldade = 1, _controle = 0, _room_salva = 0, _direcao = 1, _boss_morreu = 0, _dialogo1 = 0, _vida_atual = 10, _posicao_x = 0, _posicao_y = 0, _dash = 0) {
 	ini_open(_nome_arquivo);
 	
 	ini_write_real("jogo", "save", _save);
 	ini_write_real("jogo", "dificuldade", _dificuldade);
+	ini_write_real("jogo", "controle", _controle);
 	ini_write_real("jogo", "room_atual", _room_salva);
 	ini_write_real("jogo", "direcao", _direcao);
 	ini_write_real("jogo", "boss", _boss_morreu);
@@ -82,6 +85,7 @@ function sys_load(_nome_arquivo = "save.ini") {
 	
 	var _save = ini_read_real("jogo", "save", 0);
 	var _dificuldade = ini_read_real("jogo", "dificuldade", 1);
+	var _controle = ini_read_real("jogo", "controle", 0);
 	var _room_atual = ini_read_real("jogo", "room_atual", 0);
 	var _direcao = ini_read_real("jogo", "direcao", 1);
 	var _boss_morreu = ini_read_real("jogo", "boss", 0);
@@ -93,6 +97,7 @@ function sys_load(_nome_arquivo = "save.ini") {
 	
 	global.existe_save = _save;
 	global.dificuldade = _dificuldade;
+	global.controle = _controle;
 	global.salvamento = _room_atual;
 	global.direcao = _direcao
 	global.boss_morreu = _boss_morreu;
@@ -261,7 +266,7 @@ function sons_do_jogo() {
 		}
 	}
 
-	if (global.som_player == 0) {
+	if (global.som_player == 0 && room != obj_cutscene) {
 		audio_play_sound(snd_player_hurt, 3, false);
 	
 	}
@@ -277,7 +282,8 @@ function sons_do_jogo() {
 	if (global.som_orc == 0) {
 		audio_play_sound(snd_orc, 2, false);	
 	
-	}
+	} 
+			
 	
 	if (global.som_boss_hurt == 0) {
 		if (!audio_is_playing(snd_boss_hurt) && room == rm_cenario8) {

@@ -63,6 +63,8 @@
     {"id":{"name":"fnt_gameover","path":"fonts/fnt_gameover/fnt_gameover.yy",},},
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},
     {"id":{"name":"fnt_normal","path":"fonts/fnt_normal/fnt_normal.yy",},},
+    {"id":{"name":"fnt_player","path":"fonts/fnt_player/fnt_player.yy",},},
+    {"id":{"name":"fnt_titulo","path":"fonts/fnt_titulo/fnt_titulo.yy",},},
     {"id":{"name":"obj_block_fall","path":"objects/obj_block_fall/obj_block_fall.yy",},},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},

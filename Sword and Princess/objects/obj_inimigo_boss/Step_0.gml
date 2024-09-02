@@ -72,7 +72,7 @@ switch (estado) {
                 xscale = -1; 
             }
 
-            if (_dist > 50) {
+            if (_dist > 35) {
                 velh = lengthdir_x(max_velh, _dir);
             }
             else {
@@ -109,7 +109,7 @@ switch (estado) {
         }
 
         if (image_index >= 2 && dano == noone && posso) {
-            var _xoffset = (xscale == -1) ? sprite_width : sprite_width / 2;
+            var _xoffset = (xscale == -1) ? sprite_width + 20 : (sprite_width / 2) - 15;
             dano = instance_create_layer(x + _xoffset, y - sprite_height / 1.5, layer, obj_dano2);
             dano.dano = ataque;
             dano.pai = id;
@@ -117,10 +117,10 @@ switch (estado) {
             posso = false;
         }
         
-        if (dano != noone && image_index >= 6 && estado == "attack1") {
+        if (dano != noone && image_index >= 5 && estado == "attack1") {
             instance_destroy(dano);
             dano = noone;
-        } else if (dano != noone && image_index >= 5 && estado == "attack2") {
+        } else if (dano != noone && image_index >= 4 && estado == "attack2") {
             instance_destroy(dano);
             dano = noone;
         }

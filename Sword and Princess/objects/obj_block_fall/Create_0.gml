@@ -4,4 +4,4 @@
 // Inherit the parent event
 event_inherited();
 
-massa = 3;
+massa = 4;

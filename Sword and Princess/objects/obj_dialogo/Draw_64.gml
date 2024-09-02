@@ -15,24 +15,24 @@ var _c = c_black;
 
 	if (npc_nome == "Aldeão 1" && pagina != 4) {
 		draw_text(_xx + 32, _yy + 160, "- Aldeão");
-		draw_text(_guiw - 350, _yy + 160, "Pressione E para continuar");
+		draw_text(_guiw - 450, _yy + 160, "Pressione E para continuar");
 	} else if (npc_nome == "Aldeão 1" && pagina == 4) {
 		draw_text(_xx + 32, _yy + 160, "- Guileon");
-		draw_text(_guiw - 350, _yy + 160, "Pressione E para continuar");
+		draw_text(_guiw - 450, _yy + 160, "Pressione E para continuar");
 	}
 
 	if (npc_nome == "Troll" && pagina == 0) {
 		draw_text(_xx + 32, _yy + 160, "- Guileon");
-		draw_text(_guiw - 350, _yy + 160, "Pressione E para continuar");
+		draw_text(_guiw - 450, _yy + 160, "Pressione E para continuar");
 	} else if (npc_nome == "Troll" && pagina == 1) {
 		draw_text(_xx + 32, _yy + 160, "- Boss");
-		draw_text(_guiw - 350, _yy + 160, "Pressione E para continuar");
+		draw_text(_guiw - 450, _yy + 160, "Pressione E para continuar");
 	} else if (npc_nome == "Troll" && pagina == 2) {
 		draw_text(_xx + 32, _yy + 160, "- Guileon");
-		draw_text(_guiw - 350, _yy + 160, "Pressione E para continuar");
+		draw_text(_guiw - 450, _yy + 160, "Pressione E para continuar");
 	} else if (npc_nome == "Troll" && pagina == 3) {
 		draw_text(_xx + 32, _yy + 160, "- Boss");
-		draw_text(_guiw - 350, _yy + 160, "Pressione E para continuar");
+		draw_text(_guiw - 450, _yy + 160, "Pressione E para continuar");
 	}
 	
 

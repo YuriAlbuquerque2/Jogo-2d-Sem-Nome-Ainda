@@ -2,9 +2,6 @@
 // Você pode escrever seu código neste editor
 
 
-
-
-//Sistema de pausa
 if (keyboard_check_pressed(key_back) && room != rm_tutorial) {
     pause_active = !pause_active;
 	
@@ -18,39 +15,46 @@ if (keyboard_check_pressed(key_back) && room != rm_tutorial) {
 	}
 }
 
+//Sistema de pausa
 if (pause_active && room != rm_tutorial) {
     if (!confirm_exit && !show_no_save_message) {
+        // Lógica de navegação do menu de pausa
         if (keyboard_check_pressed(key_up)) {
             pause_sel = (pause_sel - 1 + array_length(pause_options)) mod array_length(pause_options);
-			audio_play_sound(snd_navega, 2, false);
+            audio_play_sound(snd_navega, 2, false);
         } else if (keyboard_check_pressed(key_down)) {
             pause_sel = (pause_sel + 1) mod array_length(pause_options);
-			audio_play_sound(snd_navega, 2, false);
+            audio_play_sound(snd_navega, 2, false);
         }
 
         if (keyboard_check_pressed(key_select)) {
             switch (pause_sel) {
                 case 0: // Voltar ao jogo
-					audio_play_sound(snd_confirma, 2, false);
+                    audio_play_sound(snd_confirma, 2, false);
                     pause_active = false;
                     break;
                 case 1: // Carregar último save
-					audio_play_sound(snd_confirma, 2, false);
+                    audio_play_sound(snd_confirma, 2, false);
                     if (file_exists("save.ini")) {
                         sys_load("save.ini");
-						if (room != rm_cenario8) {
-							audio_resume_sound(snd_musica);
-						} else {
-							audio_resume_sound(snd_musica_boss);	
-						}
+                        if (room != rm_cenario8) {
+                            audio_resume_sound(snd_musica);
+                        } else {
+                            audio_resume_sound(snd_musica_boss);
+                        }
                     } else {
                         show_no_save_message = true;
-                        no_save_timer = 2 * game_get_speed(gamespeed_fps); // Define 2 segundos para exibição
-                        pause_active = false; // Desativa o menu de pausa temporariamente
+                        no_save_timer = 2 * game_get_speed(gamespeed_fps);
+                        pause_active = false;
                     }
                     break;
-                case 2: // Opções
-					audio_play_sound(snd_confirma, 2, false);
+                case 2: // Controles
+                    control_type = (control_type + 1) mod 2; // Alterna entre 0 e 1
+					global.controle = control_type;
+                    audio_play_sound(snd_confirma, 2, false);
+                    break;
+                case 3: // Sair do jogo
+                    audio_play_sound(snd_confirma, 2, false);
                     confirm_exit = true;
                     break;
             }
@@ -82,6 +86,8 @@ if (show_no_save_message) {
 }
 
 
+
+
 if (pause_active || show_no_save_message) {
 	image_speed = 0;
 	velh = 0;
@@ -108,11 +114,19 @@ var _right, _left, _jump, _attack, _dash;
 var _chao = place_meeting(x, y + 1, obj_block);
 var _chao_que_cai = place_meeting(x, y + 1, obj_block_fall);
 
-_right = keyboard_check(ord("D"));
-_left = keyboard_check(ord("A"));
+if (global.controle == 0) {
+	_right = keyboard_check(ord("D"));
+	_left = keyboard_check(ord("A"));
+	_attack = keyboard_check_pressed(ord("J"));
+	_dash = keyboard_check_pressed(ord("F"));
+} else {
+	_right = keyboard_check(vk_right);
+	_left = keyboard_check(vk_left);
+	_attack = keyboard_check_pressed(ord("Z"));
+	_dash = keyboard_check_pressed(ord("X"));
+}
 _jump = keyboard_check_pressed(vk_space);
-_attack = keyboard_check_pressed(ord("J"));
-_dash = keyboard_check_pressed(ord("F"));
+
 
 //Código de movimentação
 velh = (_right - _left) * max_velh * global.vel_mult;
@@ -133,6 +147,8 @@ switch (estado) {
 	#region parado
 	case "parado":
 	{
+		if (_chao) dash = true;
+		
 		global.som_dash = -1;
 		global.grama = -1;
 		global.madeira = -1;
@@ -202,7 +218,7 @@ switch (estado) {
 			velh = 0;
 			image_index = 0;
 		}
-		else if (_dash && global.perm_dash == true) {
+		else if (_dash && global.perm_dash == true && dash) {
 			estado = "dash";
 			image_index = 0;
 		}
@@ -240,7 +256,7 @@ switch (estado) {
 		if (_chao) {
 			estado = "parado";	
 		}
-		if (_dash && global.perm_dash == true) {
+		if (_dash && global.perm_dash == true && dash) {
 			estado = "dash";	
 		}
 		if (global.vida_atual <= 0) {
@@ -346,6 +362,8 @@ switch (estado) {
 	#region dash
 	case "dash":
 	{
+		dash = false;
+		
 		global.grama = -1;
 		global.som_player_hit = -1;
 		global.madeira = -1;
@@ -354,10 +372,13 @@ switch (estado) {
 			image_index = 0;	
 		}
 			sprite_index = spr_player_dash;
+			invulneravel = true;
+			tempo_invulneravel = 1.3;
 			global.som_dash++;
 			
 			//Velocidade
 			velh = image_xscale * dash_vel;
+			velv = 0;
 			
 			//Saindo do estado
 			if (image_index >= image_number-1) {
@@ -420,7 +441,7 @@ if (_obj != noone && abs(x - _obj.x) <= 50 && keyboard_check_pressed(ord("S"))) 
 }
 	
 //Invulnerável após tomar hit
-if (invulneravel) {
+if (invulneravel && estado != "dash") {
 	image_alpha = 0.5;
 	tempo_invulneravel -= 1;
 }

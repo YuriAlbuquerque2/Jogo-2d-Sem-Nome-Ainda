@@ -42,6 +42,8 @@
     {"name":"fnt_dialogos","order":1,"path":"fonts/fnt_dialogos/fnt_dialogos.yy",},
     {"name":"fnt_menu","order":2,"path":"fonts/fnt_menu/fnt_menu.yy",},
     {"name":"fnt_normal","order":3,"path":"fonts/fnt_normal/fnt_normal.yy",},
+    {"name":"fnt_player","order":4,"path":"fonts/fnt_player/fnt_player.yy",},
+    {"name":"fnt_titulo","order":5,"path":"fonts/fnt_titulo/fnt_titulo.yy",},
     {"name":"obj_block_fall","order":28,"path":"objects/obj_block_fall/obj_block_fall.yy",},
     {"name":"obj_block","order":2,"path":"objects/obj_block/obj_block.yy",},
     {"name":"obj_camera","order":6,"path":"objects/obj_camera/obj_camera.yy",},

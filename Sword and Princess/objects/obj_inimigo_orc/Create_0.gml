@@ -18,6 +18,6 @@ ataque = 2 * global.dificuldade;
 posso = false;
 
 alvo = obj_player;
-distancia = 50;
+distancia = 35;
 
 vi_o_player = false;

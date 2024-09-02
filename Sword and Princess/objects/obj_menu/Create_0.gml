@@ -53,7 +53,7 @@ desenha_menu = function(_menu) {
 			_marg_x = marg_sel;
 		}
 	
-		draw_text_color(20 + _marg_x, (_alt / 2) - _alt_menu/2 + (_i * _espaco_y), _texto, _cor, _cor, _cor, _cor, 1);
+		draw_text_color(600 + _marg_x, (_alt / 2) - _alt_menu/2 + (_i * _espaco_y), _texto, _cor, _cor, _cor, _cor, 1);
 	}
 	
 	for (var _i = 0; _i < _qtd; _i++) {
@@ -71,21 +71,28 @@ desenha_menu = function(_menu) {
 					_cor = c_red;	
 				}
 				
-				draw_text_color(_larg / 2, (_alt / 2) - _alt_menu/2 + (_i * _espaco_y), _esq + _txt + _dir, _cor, _cor, _cor, _cor, 1);
+				draw_text_color((_larg / 2) - 50, (_alt / 2) - _alt_menu/2 + (_i * _espaco_y) - 60, _esq + _txt + _dir, _cor, _cor, _cor, _cor, 1);
 				draw_set_font(-1);
 				break;
 				}
 			}
 		}
-		draw_set_font(fnt_normal);
+		draw_set_font(fnt_titulo);
 		draw_set_color(c_black);
+		draw_text((_larg / _larg) + 350, _alt - 900, "SWORD AND PRINCESS");
+		
+		draw_set_font(fnt_normal);
+		draw_rectangle((_larg / _larg) + 580, _alt - 725, (_larg / _larg) + 960, _alt - 410, true);
+		draw_rectangle((_larg / _larg) + 579, _alt - 724, (_larg / _larg) + 961, _alt - 411, true);
+		draw_rectangle((_larg / _larg) + 578, _alt - 723, (_larg / _larg) + 962, _alt - 412, true);
 		draw_sprite(spr_cima, -1, (_larg / _larg) + 1000, _alt - 80);
 		draw_text((_larg / _larg) + 1025, _alt - 68, "Cima");
 		draw_sprite(spr_baixo, -1, (_larg / _larg) + 1115, _alt - 80);
 		draw_text((_larg / _larg) + 1140, _alt - 68, "Baixo");
 		draw_sprite(spr_enter, -1, (_larg / _larg) + 1245, _alt - 80);
 		draw_text((_larg / _larg) + 1275, _alt - 68, "Confirma");
-		draw_text((_larg / _larg) + 1000, _alt - 40, "Recomendado jogar em tela cheia");
+		draw_text((_larg / _larg) + 20, _alt - (_alt - 20), "Versão Alpha 1.0.0.1");
+		
 		draw_set_font(-1);
 		draw_set_color(-1);
 		define_align(-1, -1);	
@@ -229,7 +236,7 @@ sem_save = function() {
 	var _larg = display_get_gui_width();
 	var _alt = display_get_gui_height();
 	
-	draw_text(_larg - 300, _alt - 1000, "Não existe jogo salvo!");
+	draw_text(_larg - 780, _alt - 380, "Não existe jogo salvo!");
 	
 	draw_set_font(-1);
 	draw_set_color(-1);	
@@ -282,6 +289,13 @@ ajusta_tela = function(_valor) {
 		}
 }
 
+ajusta_controle = function(_valor) {
+	switch (_valor) {
+		case 0: global.controle = 0; break;
+		case 1: global.controle = 1; break;
+	}
+}
+
 ajusta_dificuldade = function(_valor) {
 	switch (_valor) {
 		case 0: global.dificuldade = .5; break;
@@ -308,6 +322,7 @@ menu_principal = [
 menu_opcoes = [
 				["Tipo de janela", MENU_ACOES.CARREGA_MENU, MENUS_LISTA.TELA],
 				["Dificuldade", MENU_ACOES.CARREGA_MENU, MENUS_LISTA.DIFICULDADE],
+				["Controles", MENU_ACOES.CARREGA_MENU, MENUS_LISTA.CONTROLES],
 				["Voltar", MENU_ACOES.CARREGA_MENU, MENUS_LISTA.PRINCIPAL]
 			  ];
 
@@ -320,9 +335,14 @@ menu_tela = [
 				["Tipo de tela", MENU_ACOES.AJUSTES_MENU, ajusta_tela, 1, ["Tela cheia", "Janela"]],
 				["Voltar", MENU_ACOES.CARREGA_MENU, MENUS_LISTA.OPCOES]
 		    ];
+			
+menu_controle = [
+					["Controle", MENU_ACOES.AJUSTES_MENU, ajusta_controle, 0, ["Moderno", "Clássico"]],
+					["Voltar", MENU_ACOES.CARREGA_MENU, MENUS_LISTA.OPCOES]
+				];	
+				
 
-
-menus = [menu_principal, menu_opcoes, menu_tela, menu_dificuldade];
+menus = [menu_principal, menu_opcoes, menu_tela, menu_dificuldade, menu_controle];
 
 menus_sel = array_create(array_length(menus), 0);
 

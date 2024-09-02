@@ -106,20 +106,20 @@ switch (estado) {
     
     if (image_index >= 5 && dano == noone && image_index < 8 && posso) {
 		if (xscale = -1) {
-	        dano = instance_create_layer(x + sprite_width, y - sprite_height/1.5, layer, obj_dano2);
+	        dano = instance_create_layer(x + sprite_width + 15, y - sprite_height/1.5, layer, obj_dano2);
 	        dano.dano = ataque;
 	        dano.pai = id;
 			posso = false;
 		}
 		else if (xscale = 1) {
-			dano = instance_create_layer(x + sprite_width/2, y - sprite_height/1.5, layer, obj_dano2);
+			dano = instance_create_layer(x + (sprite_width/2) - 20, y - sprite_height/1.5, layer, obj_dano2);
 			dano.dano = ataque;
 			dano.pai = id;
 			posso = false;
 		}
     }
 	
-	if (dano != noone && image_index >= 8) {
+	if (dano != noone && image_index >= 7) {
 		instance_destroy(dano);
 		dano = noone;
 	}
